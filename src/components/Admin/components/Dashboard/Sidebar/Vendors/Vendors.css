@@ -1,0 +1,23 @@
+.vendors-root{display:flex;flex-direction:column;gap:12px}
+.vendors-header{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center}
+.tabs{display:flex;gap:8px}
+.tab{border:1px solid #e5e7eb;background:#fff;border-radius:8px;padding:8px 12px;cursor:pointer}
+.tab.active{background:#111827;color:#fff}
+.vendors-filters{display:flex;gap:8px}
+.input{border:1px solid #d1d5db;border-radius:8px;padding:8px 10px}
+.table-wrap{overflow:auto}
+.vendors-table{width:100%;border-collapse:collapse;background:#fff;border:1px solid #e5e7eb;border-radius:12px}
+.vendors-table th,.vendors-table td{padding:12px 14px;border-bottom:1px solid #f1f5f9;text-align:left}
+.vendors-table thead th{background:#f8fafc;color:#111827;font-weight:600}
+.vendors-table tbody tr:hover{background:#f9fafb}
+.empty{text-align:center;color:#6b7280}
+.pill{display:inline-block;font-size:12px;padding:4px 8px;border-radius:999px;border:1px solid #e5e7eb;background:#fff}
+.pill-green{background:#dcfce7;border-color:#bbf7d0;color:#166534}
+.pill-amber{background:#fef3c7;border-color:#fde68a;color:#92400e}
+.pill-red{background:#fee2e2;border-color:#fecaca;color:#991b1b}
+.note-cell{max-width:360px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.actions{display:flex;gap:8px}
+.btn-ghost{border:1px solid #e5e7eb;background:#fff;border-radius:8px;padding:6px 10px;cursor:pointer}
+.btn-ghost:hover{background:#111827;color:#fff}
+.btn-ghost.danger{border-color:#fecaca}
+.btn-ghost.danger:hover{background:#dc2626;color:#fff;border-color:#dc2626}

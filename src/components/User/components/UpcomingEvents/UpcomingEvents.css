@@ -1,0 +1,145 @@
+.upcoming-events {
+  padding: 5rem 0;
+  background-color: #f2e6dc;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  overflow: hidden;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #4a2c21;
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: #666;
+  margin-bottom: 3rem;
+  font-size: 1.1rem;
+}
+
+/* Slider */
+.events-slider-wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.events-slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
+}
+
+.event-card {
+  min-width: 100%;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(74, 44, 33, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(74, 44, 33, 0.4);
+}
+
+.event-image {
+  position: relative;
+  height: 260px;
+  overflow: hidden;
+}
+
+.event-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.event-price {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: #4a2c21;
+  color: #fff;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.event-details {
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.event-details h3 {
+  margin-bottom: 0.6rem;
+  font-size: 1.5rem;
+  color: #4a2c21;
+}
+
+.event-date {
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+.event-location {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  color: #666;
+  margin-bottom: 1.2rem;
+  font-size: 0.95rem;
+}
+
+.book-btn {
+  background: #4a2c21;
+  color: #fff;
+  border: none;
+  padding: 0.7rem 1.4rem;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.book-btn:hover {
+  background: #f2e6dc;
+  color: #4a2c21;
+  border: 2px solid #4a2c21;
+}
+
+/* Controls */
+.slider-controls {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.slider-arrow {
+  background: white;
+  border: none;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(74, 44, 33, 0.3);
+  transition: all 0.3s ease;
+}
+
+.slider-arrow:hover {
+  background-color: #4a2c21;
+  color: white;
+}

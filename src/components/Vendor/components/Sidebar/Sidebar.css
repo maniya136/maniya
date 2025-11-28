@@ -1,0 +1,19 @@
+.vd-sb{width:248px;min-height:100vh;position:sticky;top:0;background:#0b1220;color:#cbd5e1;border-right:1px solid rgba(148,163,184,.2);display:flex;flex-direction:column;transition:width .2s}
+.vd-sb--collapsed{width:84px}
+.vd-sb__brand{display:flex;align-items:center;gap:10px;padding:16px;border-bottom:1px solid rgba(148,163,184,.15)}
+.vd-sb__brandtext{font-weight:800;letter-spacing:.3px}
+
+/* Logo mark */
+.vd-logo{width:28px;height:28px;border-radius:8px;display:inline-block;background:linear-gradient(135deg,#22c55e,#06b6d4);box-shadow:0 0 0 3px rgba(34,197,94,.15)}
+.vd-logo--inline{width:20px;height:20px;border-radius:6px}
+
+.vd-sb__nav{display:flex;flex-direction:column;gap:6px;padding:8px}
+.vd-sb__item{display:flex;align-items:center;gap:12px;background:transparent;border:0;color:inherit;text-align:left;padding:10px 12px;border-radius:10px;cursor:pointer;transition:background .15s ease, color .15s ease}
+.vd-sb__item:hover{background:rgba(148,163,184,.12)}
+.vd-sb__item.is-active{background:linear-gradient(90deg, rgba(34,197,94,.18), rgba(6,182,212,.14));color:#eafff5}
+
+/* Icons */
+.vd-icn{width:18px;height:18px;color:#94a3b8;flex:0 0 auto}
+.vd-sb__item.is-active .vd-icn{color:#22c55e}
+
+.vd-sb__label{font-size:14px}

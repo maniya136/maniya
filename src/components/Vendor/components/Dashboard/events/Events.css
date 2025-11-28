@@ -1,0 +1,21 @@
+.vd-eventlist{display:grid;gap:12px}
+.vd-event{background:#0a152a;border:1px solid rgba(148,163,184,.15);border-radius:12px;padding:12px}
+.vd-event--compact{padding:10px}
+.vd-event__head{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.vd-event__name{color:#e2e8f0;font-weight:600}
+.vd-event__meta{color:#94a3b8;font-size:12px;margin-top:2px}
+.vd-event__btn{background:#22c55e;color:#052e16;border:0;padding:8px 10px;border-radius:8px;font-weight:600;cursor:pointer}
+.vd-event__btn:hover{filter:brightness(1.05)}
+.vd-event__bar{background:rgba(148,163,184,.15);height:8px;border-radius:6px;overflow:hidden;margin-top:10px}
+.vd-event__bar__fill{background:linear-gradient(90deg,#22c55e,#06b6d4);height:100%}
+
+.vd-eventdetails{display:grid;gap:16px}
+.vd-eventdetails__section{background:#0a152a;border:1px solid rgba(148,163,184,.15);border-radius:12px;padding:12px}
+.vd-eventdetails__title{color:#cbd5e1;font-weight:600;margin-bottom:6px}
+.vd-eventdetails__text{color:#e2e8f0}
+
+.vd-review{display:grid;grid-template-columns:36px 1fr;gap:10px;align-items:start}
+.vd-review__avatar{width:36px;height:36px;background:#0b1220;border:1px solid rgba(148,163,184,.2);border-radius:50%;display:grid;place-items:center;color:#cbd5e1;font-weight:700}
+.vd-review__head{display:flex;justify-content:space-between;color:#cbd5e1;font-weight:600}
+.vd-review__rating{color:#f59e0b}
+.vd-review__comment{color:#e2e8f0;margin-top:2px}

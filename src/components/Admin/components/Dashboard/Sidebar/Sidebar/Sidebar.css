@@ -1,0 +1,12 @@
+/* Sidebar component styles */
+.sidebar-wrap{height:100%;display:flex;flex-direction:column}
+.sidebar-header{display:flex;align-items:center;gap:10px;justify-content:space-between;padding:12px;border-bottom:1px solid #0b1225}
+.sidebar-title{font-size:14px;font-weight:600;color:#e2e8f0}
+.sidebar-nav{padding:8px;display:flex;flex-direction:column;gap:6px}
+.nav-item{display:flex;gap:10px;align-items:center;padding:10px 12px;border-radius:8px;color:#cbd5e1;cursor:pointer;user-select:none}
+.nav-item:hover{background:#0b1225}
+.nav-item.active{background:#1e293b;color:#fff}
+.nav-icon{width:20px;display:flex;justify-content:center}
+.nav-letter{width:20px;display:flex;justify-content:center;font-weight:600}
+.nav-label{white-space:nowrap}
+.sidebar-footer{margin-top:auto;padding:10px 12px;border-top:1px solid #0b1225;color:#94a3b8;font-size:12px}

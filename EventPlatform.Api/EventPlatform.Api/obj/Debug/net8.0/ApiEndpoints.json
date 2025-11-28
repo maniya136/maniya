@@ -1,0 +1,765 @@
+[
+  {
+    "ContainingType": "EventPlatform.Api.Controllers.AuthController",
+    "Method": "Login",
+    "RelativePath": "api/Auth/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "EventPlatform.Api.Models.Auth.LoginModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EventPlatform.Api.Controllers.AuthController",
+    "Method": "Validate",
+    "RelativePath": "api/Auth/validate",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EventPlatform.Api.Controllers.CustomEventsController",
+    "Method": "GetCustomEvents",
+    "RelativePath": "api/CustomEvents",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[EventPlatform.Api.Models.CustomEvent, EventPlatform.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EventPlatform.Api.Controllers.CustomEventsController",
+    "Method": "CreateCustomEvent",
+    "RelativePath": "api/CustomEvents",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "customEvent",
+        "Type": "EventPlatform.Api.Models.CustomEvent",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "EventPlatform.Api.Models.CustomEvent",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EventPlatform.Api.Controllers.CustomEventsController",
+    "Method": "GetCustomEvent",
+    "RelativePath": "api/CustomEvents/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "EventPlatform.Api.Models.CustomEvent",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EventPlatform.Api.Controllers.CustomEventsController",
+    "Method": "UpdateCustomEvent",
+    "RelativePath": "api/CustomEvents/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "customEvent",
+        "Type": "EventPlatform.Api.Models.CustomEvent",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EventPlatform.Api.Controllers.CustomEventsController",
+    "Method": "DeleteCustomEvent",
+    "RelativePath": "api/CustomEvents/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EventPlatform.Api.Controllers.CustomEventsController",
+    "Method": "GetCustomEventById",
+    "RelativePath": "api/CustomEvents/event/{customEventId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "customEventId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "EventPlatform.Api.Models.CustomEvent",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EventPlatform.Api.Controllers.CustomEventsController",
+    "Method": "GetCustomEventsByUser",
+    "RelativePath": "api/CustomEvents/user/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[EventPlatform.Api.Models.CustomEvent, EventPlatform.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EventPlatform.Api.Controllers.EventTypesController",
+    "Method": "GetAll",
+    "RelativePath": "api/EventTypes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EventPlatform.Api.Controllers.EventTypesController",
+    "Method": "Create",
+    "RelativePath": "api/EventTypes",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "type",
+        "Type": "EventPlatform.Api.Models.EventType",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EventPlatform.Api.Controllers.EventTypesController",
+    "Method": "GetById",
+    "RelativePath": "api/EventTypes/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EventPlatform.Api.Controllers.EventTypesController",
+    "Method": "Update",
+    "RelativePath": "api/EventTypes/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "type",
+        "Type": "EventPlatform.Api.Models.EventType",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EventPlatform.Api.Controllers.EventTypesController",
+    "Method": "Delete",
+    "RelativePath": "api/EventTypes/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EventPlatform.Api.Controllers.PersonalEventsController",
+    "Method": "CreatePersonalEvent",
+    "RelativePath": "api/PersonalEvents",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "personalEvent",
+        "Type": "EventPlatform.Api.Models.PersonalEvent",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "EventPlatform.Api.Models.PersonalEvent",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EventPlatform.Api.Controllers.PersonalEventsController",
+    "Method": "GetPersonalEvent",
+    "RelativePath": "api/PersonalEvents/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "EventPlatform.Api.Models.PersonalEvent",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EventPlatform.Api.Controllers.PersonalEventsController",
+    "Method": "GetPersonalEventsByUser",
+    "RelativePath": "api/PersonalEvents/user/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[EventPlatform.Api.Models.PersonalEvent, EventPlatform.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EventPlatform.Api.Controllers.ServicesController",
+    "Method": "GetAll",
+    "RelativePath": "api/Services",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EventPlatform.Api.Controllers.ServicesController",
+    "Method": "Create",
+    "RelativePath": "api/Services",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "service",
+        "Type": "EventPlatform.Api.Models.Service",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EventPlatform.Api.Controllers.ServicesController",
+    "Method": "GetById",
+    "RelativePath": "api/Services/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EventPlatform.Api.Controllers.ServicesController",
+    "Method": "Update",
+    "RelativePath": "api/Services/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "service",
+        "Type": "EventPlatform.Api.Models.Service",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EventPlatform.Api.Controllers.ServicesController",
+    "Method": "Delete",
+    "RelativePath": "api/Services/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EventPlatform.Api.Controllers.ServicesController",
+    "Method": "GetByType",
+    "RelativePath": "api/Services/type/{eventTypeId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "eventTypeId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EventPlatform.Api.Controllers.UsersController",
+    "Method": "UpdateUser",
+    "RelativePath": "api/Users/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "userUpdateDto",
+        "Type": "EventPlatform.Api.Models.Dtos.UserUpdateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EventPlatform.Api.Controllers.UsersController",
+    "Method": "GetUser",
+    "RelativePath": "api/Users/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EventPlatform.Api.Controllers.UsersController",
+    "Method": "GetUserEvents",
+    "RelativePath": "api/Users/events/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EventPlatform.Api.Controllers.UsersController",
+    "Method": "Login",
+    "RelativePath": "api/Users/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "loginDto",
+        "Type": "EventPlatform.Api.Models.Dtos.LoginDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EventPlatform.Api.Controllers.UsersController",
+    "Method": "GetCurrentUser",
+    "RelativePath": "api/Users/me",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EventPlatform.Api.Controllers.UsersController",
+    "Method": "Register",
+    "RelativePath": "api/Users/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "registerUserDto",
+        "Type": "EventPlatform.Api.Models.Dtos.RegisterUserDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EventPlatform.Api.Controllers.VendorsController",
+    "Method": "GetVendors",
+    "RelativePath": "api/Vendors",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[EventPlatform.Api.Models.Vendor, EventPlatform.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EventPlatform.Api.Controllers.VendorsController",
+    "Method": "CreateVendor",
+    "RelativePath": "api/Vendors",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "vendor",
+        "Type": "EventPlatform.Api.Models.Vendor",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "EventPlatform.Api.Models.Vendor",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EventPlatform.Api.Controllers.VendorsController",
+    "Method": "GetVendor",
+    "RelativePath": "api/Vendors/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "EventPlatform.Api.Models.Vendor",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EventPlatform.Api.Controllers.VendorsController",
+    "Method": "UpdateVendor",
+    "RelativePath": "api/Vendors/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "vendor",
+        "Type": "EventPlatform.Api.Models.Vendor",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EventPlatform.Api.Controllers.VendorsController",
+    "Method": "DeleteVendor",
+    "RelativePath": "api/Vendors/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EventPlatform.Api.Controllers.VendorsController",
+    "Method": "GetAvailableVendors",
+    "RelativePath": "api/Vendors/available",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "serviceId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "start",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "end",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[EventPlatform.Api.Models.Vendor, EventPlatform.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EventPlatform.Api.Controllers.VendorsController",
+    "Method": "GetVendorByVendorId",
+    "RelativePath": "api/Vendors/vendorid/{vendorId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "vendorId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "EventPlatform.Api.Models.Vendor",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EventPlatform.Api.Controllers.VendorsController",
+    "Method": "UpdateVendorByVendorId",
+    "RelativePath": "api/Vendors/vendorid/{vendorId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "vendorId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "vendor",
+        "Type": "EventPlatform.Api.Models.Vendor",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EventPlatform.Api.Controllers.VendorsController",
+    "Method": "DeleteVendorByVendorId",
+    "RelativePath": "api/Vendors/vendorid/{vendorId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "vendorId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EventPlatform.Api.Controllers.WeatherForecastController",
+    "Method": "Get",
+    "RelativePath": "WeatherForecast",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[EventPlatform.Api.WeatherForecast, EventPlatform.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "GetWeatherForecast"
+  }
+]

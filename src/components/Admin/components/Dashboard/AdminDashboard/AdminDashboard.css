@@ -1,0 +1,31 @@
+.admin-root{display:flex;flex-direction:column;min-height:100vh;background:#f6f7fb;color:#101828}
+/* Top header */
+.admin-header{position:sticky;top:0;z-index:30;background:#fff;border-bottom:1px solid #e5e7eb}
+.admin-header-inner{height:56px;display:flex;align-items:center;gap:12px;padding:0 16px}
+.admin-header-inner h1{font-size:18px;font-weight:600;color:#111827;}
+.admin-header .ghost-btn{background-color: #111827;color:#fff}
+.admin-header .ghost-btn:hover{background-color: #111827;color:#fff}
+/* Body holds sidebar and content */
+.admin-body{display:flex;min-height:calc(100vh - 56px)}
+.admin-sidebar{width:260px;transition:width .25s ease;background:#0f172a;color:#e2e8f0;border-right:1px solid #0b1225;display:flex;flex-direction:column}
+.admin-sidebar.collapsed{width:64px}
+.admin-content{flex:1;display:flex;flex-direction:column}
+.ghost-btn{background:transparent;border:1px solid #e5e7eb;border-radius:8px;padding:6px 10px;cursor:pointer;color:#e2e8f0}
+.admin-main{padding:16px;display:flex;flex-direction:column;gap:16px}
+.grid-two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:900px){.grid-two{grid-template-columns:1fr}.admin-sidebar{position:fixed;height:100vh;z-index:20}.admin-content{margin-left:0}}
+.card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:16px;padding-right: 50px;}
+.card h3{margin:0 0 8px 0;font-size:16px;color:#111827}
+.small-muted{color:#6b7280;font-size:12px}
+.list{margin:8px 0 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px}
+.list li{display:flex;justify-content:space-between;align-items:center;padding:10px 12px;border:1px solid #eef2f7;border-radius:8px;background:#fafafa}
+.badge{font-size:11px;padding:4px 8px;border-radius:999px;border:1px solid #e5e7eb;background:#fff}
+.bar-chart{display:flex;align-items:flex-end;gap:8px;height:160px;padding:12px;border:1px dashed #e5e7eb;border-radius:8px}
+.bar{flex:1;background:linear-gradient(180deg,#60a5fa,#1d4ed8);border-radius:6px}
+.legend{display:flex;justify-content:space-between;margin-top:8px;color:#6b7280;font-size:11px}
+.stat-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:700px){.stat-cards{grid-template-columns:1fr}}
+.stat-card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:16px;display:flex;align-items:center;gap:12px}
+.stat-number{font-size:24px;font-weight:700;color:#111827}
+.stat-label{font-size:12px;color:#6b7280}
+/* sidebar styles moved to Sidebar.css */

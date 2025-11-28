@@ -1,0 +1,32 @@
+.filters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.filter-input {
+  padding: 0.7rem 1rem;
+  border-radius: 0.6rem;
+  border: 1.5px solid #e2e8f0;
+  font-size: 0.95rem;
+  color: #0f172a;
+  background-color: #ffffff;
+  transition: border-color 0.2s ease;
+}
+
+.filter-input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.filter-input::placeholder {
+  color: #94a3b8;
+}
+
+@media (max-width: 768px) {
+  .filters {
+    grid-template-columns: 1fr;
+  }
+}

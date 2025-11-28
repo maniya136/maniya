@@ -1,0 +1,4 @@
+.vd-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-bottom:20px}
+.vd-stat{background:linear-gradient(145deg, rgba(34,197,94,.12), rgba(6,182,212,.12));border:1px solid rgba(148,163,184,.18);border-left:4px solid var(--accent);border-radius:12px;padding:16px}
+.vd-stat__title{color:#cbd5e1;font-weight:600}
+.vd-stat__value{color:#e2e8f0;font-size:28px;font-weight:700;margin-top:4px}

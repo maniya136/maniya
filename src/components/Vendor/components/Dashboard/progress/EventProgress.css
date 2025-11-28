@@ -1,0 +1,11 @@
+.vd-progress{background:#0a152a;border:1px solid rgba(148,163,184,.15);border-radius:12px;padding:12px;margin-top:12px}
+.vd-progress__header{display:flex;justify-content:space-between;align-items:center}
+.vd-progress__title{color:#cbd5e1;font-weight:600}
+.vd-progress__val{color:#e2e8f0;font-weight:700}
+.vd-progress__bar{height:10px;background:rgba(148,163,184,.2);border-radius:8px;overflow:hidden;margin-top:8px}
+.vd-progress__fill{height:100%;background:linear-gradient(90deg,#06b6d4,#22c55e)}
+.vd-progress__steps{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:10px}
+.vd-progress__step{display:flex;align-items:center;gap:8px;color:#94a3b8}
+.vd-progress__step.is-done{color:#e2e8f0}
+.vd-progress__dot{width:10px;height:10px;border-radius:50%;background:#334155}
+.vd-progress__step.is-done .vd-progress__dot{background:#22c55e}
