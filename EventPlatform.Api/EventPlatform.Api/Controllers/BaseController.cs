@@ -1,22 +1,20 @@
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Security.Claims;
 
 namespace EventPlatform.Api.Controllers;
 
 [ApiController]
-[Authorize] // All derived controllers will require authorization by default
+// Base controller without authorization
 public abstract class BaseController : ControllerBase
 {
-    protected string? UserEmail => User?.Identity?.Name;
+    protected string? UserEmail => null;
     
     protected string? GetUserId()
     {
-        return User?.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        return null;
     }
     
     protected string? GetUserEmail()
     {
-        return User?.FindFirst(ClaimTypes.Email)?.Value;
+        return null;
     }
 }

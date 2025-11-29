@@ -56,7 +56,8 @@ namespace EventPlatform.Api.Models
 
         [BsonElement("role")]
         [StringLength(50, ErrorMessage = "Role cannot be longer than 50 characters")]
-        public string? Role { get; set; }
+        [Required(ErrorMessage = "Role is required")]
+        public string Role { get; set; } = "User";  // Default role
 
         [BsonElement("createdAt")]
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;

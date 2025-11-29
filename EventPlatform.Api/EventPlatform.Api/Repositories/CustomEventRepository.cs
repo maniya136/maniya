@@ -13,6 +13,7 @@ namespace EventPlatform.Api.Repositories
         private readonly IMongoCollection<CustomEvent> _customEventsCollection;
         private readonly IMongoCollection<Counter> _countersCollection;
         private const string CounterId = "customEvent";
+        private const string UserCounterId = "user";
 
         public CustomEventRepository(IMongoDatabase database, IOptions<DatabaseSettings> dbSettings)
         {
@@ -33,9 +34,9 @@ namespace EventPlatform.Api.Repositories
             );
         }
 
-        private async Task<int> GetNextCustomEventId()
+        private async Task<int> GetNextId(string counterId)
         {
-            var filter = Builders<Counter>.Filter.Eq(c => c.Id, CounterId);
+            var filter = Builders<Counter>.Filter.Eq(c => c.Id, counterId);
             var update = Builders<Counter>.Update.Inc(c => c.SequenceValue, 1);
             var options = new FindOneAndUpdateOptions<Counter>
             {
@@ -58,11 +59,14 @@ namespace EventPlatform.Api.Repositories
 
         public async Task<CustomEvent> GetByIdAsync(string id)
         {
-            if (string.IsNullOrEmpty(id))
-            {
-                throw new ArgumentNullException(nameof(id), "Event ID cannot be null or empty");
-            }
+            if (!int.TryParse(id, out int eventId))
+                return null;
 
+            return await GetByIdAsync(eventId);
+        }
+
+        public async Task<CustomEvent> GetByIdAsync(int id)
+        {
             return await _customEventsCollection
                 .Find(e => e.Id == id)
                 .FirstOrDefaultAsync()
@@ -77,15 +81,18 @@ namespace EventPlatform.Api.Repositories
                 .ConfigureAwait(false);
         }
 
-        public async Task<IEnumerable<CustomEvent>> GetByUserIdAsync(string userId)
+        public async Task<IEnumerable<CustomEvent>> GetByUserIdAsync(string userId) 
         {
-            if (string.IsNullOrEmpty(userId))
-            {
-                throw new ArgumentNullException(nameof(userId), "User ID cannot be null or empty");
-            }
+            if (!int.TryParse(userId, out int userIdInt))
+                return new List<CustomEvent>();
 
+            return await GetByUserIdAsync(userIdInt);
+        }
+
+        public async Task<IEnumerable<CustomEvent>> GetByUserIdAsync(int userId)
+        {
             return await _customEventsCollection
-                .Find(e => e.CreatedBy == userId)
+                .Find(e => e.UserId == userId)
                 .SortByDescending(e => e.CreatedAt)
                 .ToListAsync()
                 .ConfigureAwait(false);
@@ -94,12 +101,12 @@ namespace EventPlatform.Api.Repositories
         public async Task<CustomEvent> CreateAsync(CustomEvent customEvent)
         {
             if (customEvent == null)
-            {
                 throw new ArgumentNullException(nameof(customEvent));
-            }
 
-            customEvent.CustomEventId = await GetNextCustomEventId().ConfigureAwait(false);
+            // Set the auto-incrementing ID
+            customEvent.Id = await GetNextId(CounterId);
             customEvent.CreatedAt = DateTime.UtcNow;
+            
             await _customEventsCollection.InsertOneAsync(customEvent).ConfigureAwait(false);
             return customEvent;
         }
@@ -107,31 +114,59 @@ namespace EventPlatform.Api.Repositories
         public async Task<bool> UpdateAsync(CustomEvent customEvent)
         {
             if (customEvent == null)
-            {
-                throw new ArgumentNullException(nameof(customEvent));
-            }
+                return false;
 
             customEvent.UpdatedAt = DateTime.UtcNow;
-            var result = await _customEventsCollection.ReplaceOneAsync(
-                e => e.Id == customEvent.Id,
-                customEvent
-            ).ConfigureAwait(false);
-            
-            return result.IsAcknowledged && result.ModifiedCount > 0;
+            var result = await _customEventsCollection
+                .ReplaceOneAsync(e => e.Id == customEvent.Id, customEvent)
+                .ConfigureAwait(false);
+
+            return result.ModifiedCount > 0;
         }
 
         public async Task<bool> DeleteAsync(string id)
         {
-            if (string.IsNullOrEmpty(id))
-            {
-                throw new ArgumentNullException(nameof(id), "Event ID cannot be null or empty");
-            }
+            if (!int.TryParse(id, out int eventId))
+                return false;
 
+            return await DeleteAsync(eventId);
+        }
+
+        public async Task<bool> DeleteAsync(int id)
+        {
             var result = await _customEventsCollection
                 .DeleteOneAsync(e => e.Id == id)
                 .ConfigureAwait(false);
-                
-            return result.IsAcknowledged && result.DeletedCount > 0;
+
+            return result.DeletedCount > 0;
+        }
+
+        public async Task<IEnumerable<CustomEvent>> GetUpcomingEventsAsync(DateTime currentDate)
+        {
+            return await _customEventsCollection
+                .Find(e => e.StartDateTime > currentDate)
+                .SortBy(e => e.StartDateTime)
+                .ToListAsync()
+                .ConfigureAwait(false);
+        }
+
+        public async Task<IEnumerable<CustomEvent>> GetOngoingEventsAsync(DateTime currentDate)
+        {
+            return await _customEventsCollection
+                .Find(e => e.StartDateTime <= currentDate && 
+                          (e.EndDateTime == null || e.EndDateTime >= currentDate))
+                .SortBy(e => e.StartDateTime)
+                .ToListAsync()
+                .ConfigureAwait(false);
+        }
+
+        public async Task<IEnumerable<CustomEvent>> GetPastEventsAsync(DateTime currentDate)
+        {
+            return await _customEventsCollection
+                .Find(e => e.EndDateTime < currentDate)
+                .SortByDescending(e => e.EndDateTime)
+                .ToListAsync()
+                .ConfigureAwait(false);
         }
     }
 }

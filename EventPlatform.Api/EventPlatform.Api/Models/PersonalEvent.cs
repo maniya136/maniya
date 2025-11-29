@@ -20,7 +20,18 @@ namespace EventPlatform.Api.Models
         
         [BsonElement("userId")]
         [Required]
-        public string UserId { get; set; } = string.Empty;
+        [BsonRepresentation(BsonType.Int32)]
+        public int UserId { get; set; }
+        
+        [BsonElement("eventTypeId")]
+        [Required]
+        [BsonRepresentation(BsonType.Int32)]
+        public int EventTypeId { get; set; }
+        
+        [BsonElement("serviceIds")]
+        [Required]
+        [BsonRepresentation(BsonType.Array)]
+        public List<int> ServiceIds { get; set; } = new List<int>();
         
         [BsonElement("title")]
         [Required]
@@ -53,22 +64,28 @@ namespace EventPlatform.Api.Models
         public string? VendorId { get; set; } // Reference to Vendor if any
         
         [BsonElement("serviceType")]
-        public string? ServiceType { get; set; } // e.g., "decoration", "catering", etc.
+        [Obsolete("This property is deprecated. Use ServiceId instead.")]
+        public string? ServiceType { get; set; } // Deprecated: Keeping for backward compatibility
 
         public static async Task<int> GetNextPersonalEventId(IMongoDatabase database)
         {
-            var filter = Builders<CounterDocument>.Filter.Eq(x => x.Id, PersonalEventCounterId);
-            var update = Builders<CounterDocument>.Update.Inc(x => x.SequenceValue, 1);
+            var counters = database.GetCollection<CounterDocument>("counters");
+            var filter = Builders<CounterDocument>.Filter.Eq("_id", "personalEventId");
+            var update = Builders<CounterDocument>.Update.Inc("seq", 1);
             var options = new FindOneAndUpdateOptions<CounterDocument>
             {
-                ReturnDocument = ReturnDocument.After,
-                IsUpsert = true
+                IsUpsert = true,
+                ReturnDocument = ReturnDocument.After
             };
 
-            var counter = await database.GetCollection<CounterDocument>(CounterCollectionName)
-                .FindOneAndUpdateAsync(filter, update, options);
-
-            return counter?.SequenceValue ?? 0;
+            var result = await counters.FindOneAndUpdateAsync(filter, update, options);
+            return result.SequenceValue;
+        }
+        
+        // Helper method to check if event contains a specific service
+        public bool HasService(int serviceId)
+        {
+            return ServiceIds.Contains(serviceId);
         }
     }
 
@@ -76,6 +93,7 @@ namespace EventPlatform.Api.Models
     {
         [BsonId]
         public string Id { get; set; } = string.Empty;
+        [BsonElement("seq")]
         public int SequenceValue { get; set; } = 0;
     }
 }

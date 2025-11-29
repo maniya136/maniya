@@ -17,28 +17,49 @@ namespace EventPlatform.Api.Services
             _personalEvents = database.GetCollection<PersonalEvent>("personalEvents");
         }
 
+        // CREATE PERSONAL EVENT
         public async Task<PersonalEvent> CreatePersonalEventAsync(PersonalEvent personalEvent)
         {
             personalEvent.CreatedAt = DateTime.UtcNow;
+
+            // Auto-Increment PersonalEventId (INT)
             personalEvent.PersonalEventId = await PersonalEvent.GetNextPersonalEventId(_database);
-            
+
             await _personalEvents.InsertOneAsync(personalEvent);
             return personalEvent;
         }
 
-        public async Task<PersonalEvent> GetPersonalEventAsync(string id) =>
-            await _personalEvents.Find<PersonalEvent>(e => e.Id == id).FirstOrDefaultAsync();
+        // GET PERSONAL EVENT BY STRING ID (OBJECTID)
+        public async Task<PersonalEvent> GetPersonalEventAsync(string id)
+        {
+            return await _personalEvents
+                .Find(e => e.Id == id)
+                .FirstOrDefaultAsync();
+        }
 
-        public async Task<IEnumerable<PersonalEvent>> GetPersonalEventsByUserIdAsync(string userId) =>
-            await _personalEvents.Find(e => e.UserId == userId).ToListAsync();
+        // GET EVENTS BY USER ID (INT)
+        public async Task<IEnumerable<PersonalEvent>> GetPersonalEventsByUserIdAsync(int userId)
+        {
+            return await _personalEvents
+                .Find(e => e.UserId == userId)
+                .ToListAsync();
+        }
 
+        // UPDATE PERSONAL EVENT
         public async Task UpdatePersonalEventAsync(string id, PersonalEvent personalEventIn)
         {
             personalEventIn.UpdatedAt = DateTime.UtcNow;
-            await _personalEvents.ReplaceOneAsync(e => e.Id == id, personalEventIn);
+
+            await _personalEvents.ReplaceOneAsync(
+                e => e.Id == id,
+                personalEventIn
+            );
         }
 
-        public async Task DeletePersonalEventAsync(string id) =>
+        // DELETE PERSONAL EVENT
+        public async Task DeletePersonalEventAsync(string id)
+        {
             await _personalEvents.DeleteOneAsync(e => e.Id == id);
+        }
     }
 }

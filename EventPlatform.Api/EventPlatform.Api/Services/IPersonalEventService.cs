@@ -8,7 +8,7 @@ namespace EventPlatform.Api.Services
     {
         Task<PersonalEvent> CreatePersonalEventAsync(PersonalEvent personalEvent);
         Task<PersonalEvent> GetPersonalEventAsync(string id);
-        Task<IEnumerable<PersonalEvent>> GetPersonalEventsByUserIdAsync(string userId);
+        Task<IEnumerable<PersonalEvent>> GetPersonalEventsByUserIdAsync(int userId);
         Task UpdatePersonalEventAsync(string id, PersonalEvent personalEventIn);
         Task DeletePersonalEventAsync(string id);
     }

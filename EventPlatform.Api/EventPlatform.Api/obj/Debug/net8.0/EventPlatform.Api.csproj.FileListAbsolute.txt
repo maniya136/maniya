@@ -46,4 +46,5 @@ D:\Maniya\Sem_7\evenza_AVU_API\evenza\EventPlatform.Api\EventPlatform.Api\bin\De
 D:\Maniya\Sem_7\evenza_AVU_API\evenza\EventPlatform.Api\EventPlatform.Api\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 D:\Maniya\Sem_7\evenza_AVU_API\evenza\EventPlatform.Api\EventPlatform.Api\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
 D:\Maniya\Sem_7\evenza_AVU_API\evenza\EventPlatform.Api\EventPlatform.Api\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+D:\Maniya\Sem_7\evenza_AVU_API\evenza\EventPlatform.Api\EventPlatform.Api\obj\Debug\net8.0\EventPlatform.Api.sourcelink.json
 D:\Maniya\Sem_7\evenza_AVU_API\evenza\EventPlatform.Api\EventPlatform.Api\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
