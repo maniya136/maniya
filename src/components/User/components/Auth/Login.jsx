@@ -1,56 +1,60 @@
-import React, { useState } from 'react';
-import './Auth.css';
-import axios from 'axios';
+import React, { useState } from "react";
+import "./Auth.css";
+import axios from "axios";
 
-// In login onsubmit bind login api and send data to  backend 
+// In login onsubmit bind login api and send data to  backend
 export const Login = ({ onNavigate }) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError('');
+    setError("");
 
     if (!email || !password) {
-      setError('Please fill in all fields');
+      setError("Please fill in all fields");
       return;
     }
 
     setLoading(true);
     try {
       const credentials = { email: email.trim().toLowerCase(), password };
-      console.log('Sending login request:', credentials);
+      console.log("Sending login request:", credentials);
 
-      const response = await axios.post('https://localhost:7253/api/Users/login', credentials, {
-        headers: {
-          'Content-Type': 'application/json'
+      const response = await axios.post(
+        "https://unsynonymously-unreveling-lauri.ngrok-free.dev/api/Users/login",
+        credentials,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
         }
-      });
+      );
 
-      console.log('Login response:', response.data);
+      console.log("Login response:", response.data);
 
       // If backend later returns a token, you can store it here
       if (response.data?.token) {
-        localStorage.setItem('authToken', response.data.token);
+        localStorage.setItem("authToken", response.data.token);
       }
 
       // Navigate to user dashboard on success
       if (onNavigate) {
-        alert("Login Successful")
-        onNavigate('user');
+        alert("Login Successful");
+        onNavigate("user");
       }
     } catch (err) {
-      console.error('Login failed:', err);
-      let message = 'Login failed. Please check your credentials.';
+      console.error("Login failed:", err);
+      let message = "Login failed. Please check your credentials.";
 
       if (err.response) {
         // Server responded with a status outside 2xx
         message = err.response.data?.message || message;
       } else if (err.request) {
         // No response received
-        message = 'No response from server. Please check your connection.';
+        message = "No response from server. Please check your connection.";
       } else if (err.message) {
         message = err.message;
       }
@@ -94,12 +98,17 @@ export const Login = ({ onNavigate }) => {
           </div>
 
           <button type="submit" className="submit-btn" disabled={loading}>
-            {loading ? 'Logging in...' : 'Login'}
+            {loading ? "Logging in..." : "Login"}
           </button>
         </form>
 
         <div className="auth-footer">
-          <p>Don't have an account? <button onClick={() => onNavigate('register')} className="link-btn">Register here</button></p>
+          <p>
+            Don't have an account?{" "}
+            <button onClick={() => onNavigate("register")} className="link-btn">
+              Register here
+            </button>
+          </p>
         </div>
 
         {/* Demo accounts section removed now that real API login is used */}
